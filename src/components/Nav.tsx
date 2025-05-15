@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useRef } from 'react'
+import React, { useRef } from 'react'
 import Wrapper from './Wrapper'
 import Link from 'next/link'
 import { useTransitionRouter } from 'next-view-transitions'
