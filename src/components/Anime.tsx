@@ -147,6 +147,6 @@ export const TapText = ({children}: { children: React.ReactNode }) => {
     }, { scope: tapRef })
 
     return (
-        <span ref={tapRef} className='uppercase text-4xl font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>{children}</span>
+        <span ref={tapRef} className='uppercase text-4xl lg:hidden font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>{children}</span>
     )
 }
