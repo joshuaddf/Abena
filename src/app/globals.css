@@ -1,0 +1,47 @@
+/* globals.css */
+@import "tailwindcss";
+
+html, body {
+  @apply bg-black text-white;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Optional: Ensure the container div doesn't interfere */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, scale;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+}
