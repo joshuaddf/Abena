@@ -67,7 +67,7 @@ export const StaggerText = ({
         gsap.to(targets, {
             yPercent: 0,
             stagger: 0.06,
-            duration: 2,
+            duration: 2  ,
             ease: 'expo.out',
             delay: 0.7,
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
@@ -116,5 +116,37 @@ export const ImageReveal = ({ children }: ImageRevealProps) => {
             <div ref={imageCoverRef} className="absolute top-0 left-0 h-full w-full bg-[#151515]"></div>
             {children}
         </>
+    )
+}
+
+export const TapText = ({children}: { children: React.ReactNode }) => {
+    const tapRef = useRef<HTMLSpanElement>(null)
+
+    useGSAP(() => {
+        if (!tapRef.current) return
+        const tapText = new SplitType(tapRef.current, { types: 'chars' })
+
+        const tl = gsap.timeline();
+
+        tl.set(tapText.chars, { opacity: 0 })
+        tl.to(tapText.chars, {
+            duration: 1.5,
+            opacity: 1,
+            stagger: 0.05,
+            ease: 'expo.out',
+            delay: 1.3,
+        })
+        tl.to(tapText.chars, {
+            duration: 1,
+            opacity: 0,
+            stagger: 0.05,
+            delay: 0.6,
+            ease: 'expo.out',
+        })
+
+    }, { scope: tapRef })
+
+    return (
+        <span ref={tapRef} className='uppercase text-4xl font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>{children}</span>
     )
 }
