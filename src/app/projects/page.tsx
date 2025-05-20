@@ -38,7 +38,7 @@ const page = () => {
 
   return (
     <div className='w-full h-[100dvh] flex flex-col bg-[#151515] overflow-y-scroll relative scroll-smooth snap-y snap-mandatory no-scrollbar'>
-      <TapText>Tap!</TapText>
+      
       {projects.map((project, index) => (
         <div
           key={project.id}
